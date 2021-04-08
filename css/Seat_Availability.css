@@ -44,7 +44,7 @@ marquee{
 .booking-form>form {
 	background-color: #101113;
 	padding: 30px 20px;
-	border-radius: 3px;
+	border-radius: 5px;
 }
 .booking-form .form-label {
 	color: white;
