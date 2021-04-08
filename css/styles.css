@@ -1,6 +1,12 @@
 html,
 body {
   height: 100%;
+
+}
+header{
+  font-size: 14px;
+  font-family: 'helvetica neue';
+  padding: 15px 5px;
 }
 
 body {
