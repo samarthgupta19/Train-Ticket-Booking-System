@@ -1,0 +1,229 @@
+<html>
+<head>
+  <title>Schedule</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style>
+    body {
+      background : url("https://hougumlaw.com/wp-content/uploads/2016/05/light-website-backgrounds-light-color-background-images-light-color-background-images-for-website-1024x640-400x250.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+.center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+th{
+  text-align: center;
+}
+    td {
+      font-weight: bolder;
+    }
+
+    #img1 {
+      margin-left:65px;
+      padding-right: 60px;
+    }
+
+    #img2 {
+      margin-left: 1px;
+      height: 250px;
+      width: 500px;
+    }
+
+    h1 {
+      text-align: center;
+      font-weight: bolder;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+a{
+  text-decoration: none;
+  color: black;
+
+}
+* {
+  box-sizing: border-box;
+}
+.row {
+  display: flex;
+}
+.column {
+  flex: 33.33%;
+  padding: 5px;
+}
+
+    footer {
+      text-align: center;
+      color: #f5f5f5;
+      margin-top: 10px;
+      font-family: Helvetica;
+      font-weight: bolder;
+      margin-left: -20px;
+      color: #000000
+    }
+    .heading{
+      text-decoration: none;
+      padding-left: 100px;
+    }
+table{
+  border-color: #000000;
+}
+    .t1 {
+      border: 2px solid black;
+      padding: 5px;
+    }
+  </style>
+</head>
+<header>
+  <header>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <div class="container-fluid">
+        <a href="#" style="color:inherit;" <span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnpoyZQoTHRH3y1g4_0jrYQ-HsEaQCahK7OruS8KD_4--HYizvFhMyuioFi5-bKzbGS4U&usqp=CAU"
+            style="width:45px; padding-right: 10px;float:left;"></img></span>
+          <a class="navbar-brand" href="home.html">Indian Railways</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0" style="margin-left:800px">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/ticket_schedule">Schedule</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/Seat_Availability">Seat Availability</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact US</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/signin">Log In</a>
+              </li>
+              <li class="nav-item" id="signupcss">
+                <a class="nav-link" href="/signup1">Sign Up</a>
+              </li>
+
+            </ul>
+
+          </div>
+      </div>
+    </nav>
+  </header>
+</header>
+
+<body>
+  <div class="container">
+    <div class="form-header">
+      <h1><b><u>TRAIN SCHEDULE</u></b></h1>
+    </div>
+    <div style="margin-top:2%;">
+      <table border="2" width="1000px" cellpadding="5" align="center" cellspacing="0" style="text-align:center;border-radius:5px;">
+        <tr style="background-color:black;color:white;">
+          <th>Train Number</th>
+          <th>Train Name</th>
+          <th>From Station</th>
+          <th>Destination Station</th>
+          <th>Runs On</th>
+        </tr>
+        <tr>
+          <td>82501</td>
+          <td>TEJAS EXP.</td>
+          <td>LUCKNOW</td>
+          <td>NEW DELHI</td>
+          <td><b>Mon</b> Tue <b>Wed</b> Thu Fri <b>Sat</b> Sun</td>
+        </tr>
+      </table><br>
+    </div>
+    <div>
+      <table border="3" cellpadding="5" align="center" width="1000px" cellspacing="0" style="text-align:center;border-radius:5px;">
+        <tr class="heading" style="color:white;background-color:black;">
+
+            <th>S.N.</th>
+            <th>Station Code</th>
+            <th>Station Name</th>
+            <th>Arrival Time</th>
+            <th>Departure Time</th>
+            <th>Halt Time(in minutes)</th>
+
+         </tr>
+         <tr>
+            <td>1</td>
+            <td>LKO</td>
+            <td>LUCKNOW</td>
+            <td>--</td>
+            <td>19:50</td>
+            <td>02:00</td>
+         </tr>
+	 <tr>
+            <td>2</td>
+            <td>AGC</td>
+            <td>AGRA CANTT</td>
+            <td>21:23</td>
+            <td>21:45</td>
+            <td>02:00</td>
+         </tr>
+	 <tr>
+            <td>3</td>
+            <td>GWL</td>
+            <td>GWALIOR</td>
+            <td>23:08</td>
+            <td>23:10</td>
+            <td>02:00</td>
+         </tr>
+         <tr>
+            <td>4</td>
+            <td>JHS</td>
+            <td>JHANSI</td>
+            <td>00:25</td>
+            <td>00:30</td>
+            <td>05:00</td>
+         </tr>
+         <tr>
+            <td>5</td>
+            <td>BPL</td>
+            <td>BHOPAL</td>
+            <td>3:45</td>
+            <td>3:55</td>
+            <td>10:00</td>
+         </tr>
+         <tr>
+            <td>6</td>
+            <td>ITR</td>
+            <td>ITARSI JN</td>
+            <td>05:23</td>
+            <td>05:25</td>
+            <td>02:00</td>
+         </tr>
+         <tr>
+            <td>7</td>
+            <td>NDLS</td>
+            <td>New Delhi</td>
+            <td>09:25</td>
+            <td>09:30</td>
+            <td>05:00</td>
+         </tr>
+      </table><br>
+    </div>
+    <div class="row">
+      <div class="column">
+        <img src="https://sourcedigit.com/wp-content/uploads/2014/08/Hero-Img-IRCTC-Indian-Railways-Android-iPhone-Apps.jpg" alt="Snow" style="width:100%" id="img1">
+      </div>
+      <div class="column">
+        <img src="https://english.cdn.zeenews.com/sites/default/files/styles/zm_700x400/public/2020/05/10/860078-indian-railways.jpg" alt="Forest" id="img2">
+      </div>
+      <div class="container">
+          <footer>&copy; Copyright : INDIAN RAILWAYS: All Rights Reserved</footer>
+          </a>
+
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

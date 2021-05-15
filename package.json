@@ -17,8 +17,15 @@
   },
   "homepage": "https://github.com/msachan562000/Train-Ticket-Booking-System#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^5.12.9",
+    "passport": "^0.4.1",
     "path": "^0.12.7",
-    "pug": "^3.0.2"
+    "pug": "^3.0.2",
+    "request": "^2.88.2",
+    "routes": "^2.1.0"
   }
 }

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Log-In</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+<link href="css/styles.css" rel="stylesheet" >
+<style>
+.bd-placeholder-img {
+font-size: 1.125rem;
+text-anchor: middle;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+@media (min-width: 768px) {
+.bd-placeholder-img-lg {
+font-size: 3.5rem;
+}}
+</style>
+<script type="text/javascript">
+function valid(){
+var user=document.getElementById("username");
+var pass=document.getElementById("pass");
+if(parseString(user)=="yash" && parseString(pass)=="abcd12")
+{
+return true;}
+else {
+return false;
+}}
+</script>
+</head>
+<header>
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<div class="container-fluid">
+<a href="#" style="color:inherit;padding:0px 0px 0px 10px;"<span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnpoyZQoTHRH3y1g4_0jrYQ-HsEaQCahK7OruS8KD_4--HYizvFhMyuioFi5-bKzbGS4U&usqp=CAU" style="width:45px; padding-right: 10px;float:left;"></img></span>
+<a class="navbar-brand" href="home.html" style="font-size:18px;font-family: 'helvetica neue';padding:15px;margin:0px 10px 0px -15px;">Indian Railways</a>
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+<span class="navbar-toggler-icon"></span>
+</button>
+<div class="collapse navbar-collapse" id="navbarCollapse">
+<ul class="navbar-nav me-auto mb-2 mb-md-0" style="margin-left:800px">
+  <li class="nav-item">
+    <a class="nav-link active" aria-current="page" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/ticket_schedule">Schedule</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/Seat_Availability">Seat Availability</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/contact">Contact US</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="/signin">Log In</a>
+  </li>
+  <li class="nav-item" id="signupcss">
+    <a class="nav-link" href="/signup1">Sign Up</a>
+  </li></ul>
+</div></div>
+</nav>
+</header>
+<body class="text-center">
+<form action="ticket_booking.html"class="form-signin" method="post" onsubmit="return valid();">
+<img class="mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnpoyZQoTHRH3y1g4_0jrYQ-HsEaQCahK7OruS8KD_4--HYizvFhMyuioFi5-bKzbGS4U&usqp=CAU" alt="" width="72" height="72">
+<h1 class="h3 mb-3 font-weight-normal" style="color:white">Log-In</h1>
+<input type="text" name="uid" id="username" class="form-control top" placeholder="User-Id/Phone Number"  autofocus>
+<input type="password" name="pass"id="pass" class="form-control middle" placeholder="Password">
+<br>
+<button class="btn btn-lg btn-primary btn-block"style="font-size:17.5px;" type="submit" onclick="">Log Me In</button><br><br>
+<a href="signup1.html"><button class="btn btn-lg btn-primary btn-block"id="signup" style="background-color:green;font-size:17.5px;" type="button"> Not a Member Yet!! Sign UP</button></a>
+<p class="mt-5 mb-3 text-muted">&copy;Indian Railways </p>
+</form>
+</body>
+</html>
