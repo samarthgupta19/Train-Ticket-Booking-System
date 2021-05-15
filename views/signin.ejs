@@ -23,17 +23,7 @@ user-select: none;
 font-size: 3.5rem;
 }}
 </style>
-<script type="text/javascript">
-function valid(){
-var user=document.getElementById("username");
-var pass=document.getElementById("pass");
-if(parseString(user)=="yash" && parseString(pass)=="abcd12")
-{
-return true;}
-else {
-return false;
-}}
-</script>
+
 </head>
 <header>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -67,14 +57,14 @@ return false;
 </nav>
 </header>
 <body class="text-center">
-<form action="ticket_booking.html"class="form-signin" method="post" onsubmit="return valid();">
+<form action="/ticket_booking"class="form-signin" method="post" onsubmit="return valid();">
 <img class="mb-4" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnpoyZQoTHRH3y1g4_0jrYQ-HsEaQCahK7OruS8KD_4--HYizvFhMyuioFi5-bKzbGS4U&usqp=CAU" alt="" width="72" height="72">
 <h1 class="h3 mb-3 font-weight-normal" style="color:white">Log-In</h1>
 <input type="text" name="uid" id="username" class="form-control top" placeholder="User-Id/Phone Number"  autofocus>
 <input type="password" name="pass"id="pass" class="form-control middle" placeholder="Password">
 <br>
-<button class="btn btn-lg btn-primary btn-block"style="font-size:17.5px;" type="submit" onclick="">Log Me In</button><br><br>
-<a href="signup1.html"><button class="btn btn-lg btn-primary btn-block"id="signup" style="background-color:green;font-size:17.5px;" type="button"> Not a Member Yet!! Sign UP</button></a>
+<button class="btn btn-lg btn-primary btn-block"style="font-size:17.5px;" type="submit" >Log Me In</button><br><br>
+<a href="/signup1"><button class="btn btn-lg btn-primary btn-block"id="signup" style="background-color:green;font-size:17.5px;" type="button"> Not a Member Yet!! Sign UP</button></a>
 <p class="mt-5 mb-3 text-muted">&copy;Indian Railways </p>
 </form>
 </body>

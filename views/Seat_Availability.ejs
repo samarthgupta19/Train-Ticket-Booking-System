@@ -1,127 +1,132 @@
 <!DOCTYPE html>
+
 <head>
 	<title>Seat Availability</title>
 	<link rel="stylesheet" href="../css/Seat_Availability.css">
 
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
 
-	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-	    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
+	<link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/carousel/">
 </head>
 <header>
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-    <div class="container-fluid">
-      <a href="#" style="color:inherit;"<span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnpoyZQoTHRH3y1g4_0jrYQ-HsEaQCahK7OruS8KD_4--HYizvFhMyuioFi5-bKzbGS4U&usqp=CAU" style="width:45px; padding-right: 10px;float:left;"></img></span>
-      <a class="navbar-brand" href="home.html">Indian Railways</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        <ul class="navbar-nav me-auto mb-2 mb-md-0" style="margin-left:800px">
-					<li class="nav-item">
-						<a class="nav-link active" aria-current="page" href="/">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/ticket_schedule">Schedule</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/Seat_Availability">Seat Availability</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/contact">Contact US</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/signin">Log In</a>
-					</li>
-					<li class="nav-item" id="signupcss">
-						<a class="nav-link" href="/signup1">Sign Up</a>
-					</li>
+	<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+		<div class="container-fluid">
+			<a href="#" style="color:inherit;" <span><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnpoyZQoTHRH3y1g4_0jrYQ-HsEaQCahK7OruS8KD_4--HYizvFhMyuioFi5-bKzbGS4U&usqp=CAU"
+					style="width:45px; padding-right: 10px;float:left;"></img></span>
+				<a class="navbar-brand" href="home.html">Indian Railways</a>
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarCollapse">
+					<ul class="navbar-nav me-auto mb-2 mb-md-0" style="margin-left:800px">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="/">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/ticket_schedule">Schedule</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/Seat_Availability">Seat Availability</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/contact">Contact US</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/signin">Log In</a>
+						</li>
+						<li class="nav-item" id="signupcss">
+							<a class="nav-link" href="/signup1">Sign Up</a>
+						</li>
 
-        </ul>
+					</ul>
 
-      </div>
-    </div>
-  </nav>
+				</div>
+		</div>
+	</nav>
 </header>
+
 <body>
 	<div id="booking" class="section">
-	<div class="section-center">
-	<div class="container">
-	<div class="row">
-	<div class="booking-form">
-	<div class="form-header">
-	<h1><u>SEAT ENQUIRY</u></h1>
-	</div>
-	<form action="Availability_table.html" method="post">
-	<div class="row">
-	<div class="col-sm-6">
-	<div class="form-group">
-	<span class="form-label">SOURCE</span>
-	<input class="form-control" type="text" placeholder="Enter Source Station">
-	</div>
-	</div>
-	<div class="col-sm-6">
-	<div class="form-group">
-	<span class="form-label">DESTINATION</span>
-	<input class="form-control" type="text" placeholder="Enter Destination Station">
-	</div>
-	</div>
-	</div>
-	<div class="row">
-	<div class="col-sm-5">
-	<div class="form-group">
-	<span class="form-label">JOURNEY DATE</span>
-	<input class="form-control" type="date" required>
-	</div>
-	</div>
-	<div class="col-sm-7">
-	<div class="row">
-	<div class="col-sm-5">
-	<div class="form-group">
-	<span class="form-label">CLASS</span>
-	<select class="form-control">
-		<option>FIRST AC</option>
-		<option>EXECUTIVE CLASS</option>
-		<option>SECOND AC</option>
-		<option>THIRD AC</option>
-		<option>3 AC ECONOMY</option>
-		<option>AC CHAIR CAR</option>
-		<option>SLEEPER CLASS</option>
-		<option>SECOND SEATING</option>
-	</select>
-	</div>
-    </div>
-	<div class="col-sm-7">
-	<div class="form-group">
-	<span class="form-label">QUOTA</span>
-	<select class="form-control">
-		<option>GENERAL QUOTA</option>
-		<option>TATKAL QUOTA</option>
-		<option>LADIES QUOTA</option>
-		<option>DEFENCE QUOTA</option>
-		<option>HANDICAPPED QUOTA</option>
-		<option>PREMIUM TATKAL QUOTA</option>
-	</select>
-			</div>
-			</div>
+		<div class="section-center">
+			<div class="container">
+				<div class="row">
+					<div class="booking-form">
+						<div class="form-header">
+							<h1><u>SEAT ENQUIRY</u></h1>
+						</div>
+						<form action="/Availability_table" method="post">
+							<div class="row">
+								<div class="col-sm-6">
+									<div class="form-group">
+										<span class="form-label">SOURCE</span>
+										<input class="form-control" type="text" placeholder="Enter Source Station">
+									</div>
+								</div>
+								<div class="col-sm-6">
+									<div class="form-group">
+										<span class="form-label">DESTINATION</span>
+										<input class="form-control" type="text" placeholder="Enter Destination Station">
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-sm-5">
+									<div class="form-group">
+										<span class="form-label">JOURNEY DATE</span>
+										<input class="form-control" type="date" required>
+									</div>
+								</div>
+								<div class="col-sm-7">
+									<div class="row">
+										<div class="col-sm-5">
+											<div class="form-group">
+												<span class="form-label">CLASS</span>
+												<select class="form-control">
+													<option>FIRST AC</option>
+													<option>EXECUTIVE CLASS</option>
+													<option>SECOND AC</option>
+													<option>THIRD AC</option>
+													<option>3 AC ECONOMY</option>
+													<option>AC CHAIR CAR</option>
+													<option>SLEEPER CLASS</option>
+													<option>SECOND SEATING</option>
+												</select>
+											</div>
+										</div>
+										<div class="col-sm-7">
+											<div class="form-group">
+												<span class="form-label">QUOTA</span>
+												<select class="form-control">
+													<option>GENERAL QUOTA</option>
+													<option>TATKAL QUOTA</option>
+													<option>LADIES QUOTA</option>
+													<option>DEFENCE QUOTA</option>
+													<option>HANDICAPPED QUOTA</option>
+													<option>PREMIUM TATKAL QUOTA</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="form-btn">
+								<button type="submit" name="button">CHECK AVAILABILITY</button>
+							</div>
+						</form>
+						<marquee width="100%" direction="right" height="20px">
+							<mark>WELCOME TO INDIAN RAILWAYS</mark></marquee>
+						<br>
+						<center>
+							<img src="https://resize.indiatvnews.com/en/resize/newbucket/715_-/2020/10/indian-railways-irctc-1601651073.jpg" alt="Italian Trulli" height="300px" width="641px">
+							<footer>&copy; Copyright : INDIAN RAILWAYS: All Rights Reserved</footer>
+						</center>
+					</div>
+				</div>
 			</div>
 		</div>
-		</div>
-	<div class="form-btn">
-		<a href="Availability_table.html" class="btn btn-primary btn-lg btn-primary btn-block" role="button">CHECK AVAILABILITY</a>
 	</div>
-</form>
-<marquee width="100%" direction="right" height="20px">
-<mark>WELCOME TO INDIAN RAILWAYS</mark></marquee>
-<br>
-<center>
-<img src="https://resize.indiatvnews.com/en/resize/newbucket/715_-/2020/10/indian-railways-irctc-1601651073.jpg" alt="Italian Trulli" height="300px" width="641px">
-<footer>&copy; Copyright : INDIAN RAILWAYS: All Rights Reserved</footer></center>
-</div>
-</div>
-</div>
-</div>
-</div>
 </body>
+
 </html>
