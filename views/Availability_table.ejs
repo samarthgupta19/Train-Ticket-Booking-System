@@ -121,6 +121,11 @@ table{
     <div class="form-header">
       <h1><b><u>SEAT AVAILABILITY TABLE</u></b></h1>
     </div>
+<%trains.forEach(function(train){%>
+
+      <%var i=1%>
+    <%seats.forEach(function(seat){%>
+<%if(train.train_no===seat.train_no){%>
     <div style="margin-top:2%;">
       <table border="2" width="1000px" cellpadding="5" align="center" cellspacing="0" style="text-align:center;border-radius:5px;">
         <tr style="background-color:black;color:white;">
@@ -132,11 +137,11 @@ table{
           <th>Quota</th>
         </tr>
         <tr>
-          <td>82501</td>
-          <td>TEJAS EXP.</td>
-          <td>16-04-2021</td>
-          <td>LUCKNOW</td>
-          <td>NEW DELHI</td>
+          <td><%=train.train_no%></td>
+          <td><%=train.train_name%></td>
+          <td><%=seat.date%></td>
+          <td><%=train.from%></td>
+          <td><%=train.to%></td>
           <td>GENERAL</td>
         </tr>
       </table><br>
@@ -152,37 +157,16 @@ table{
 
         </tr>
         <tr>
-          <td>1</td>
-          <td>1A</td>
-          <td>AVAILABLE-04</td>
+          <td><%=i++%></td>
+          <td><%=seat.class%></td>
+          <td><%=seat.seats%></td>
           <td><a href="/payment_gateway"<button type="submit" name="Book Ticket" >Book Ticket</button></a></td>
         </tr>
-        <tr>
-          <td>2</td>
-          <td>2A</td>
-          <td>RLWL1/WL1</td>
-          <td><a href="/payment_gateway"<button type="submit" name="Book Ticket" >Book Ticket</button></a></td>
-        </tr>
-        <tr>
-          <td>3</td>
-          <td>3A</td>
-          <td>RLWL3/WL3</td>
-          <td><a href="/payment_gateway"<button type="submit" name="Book Ticket" >Book Ticket</button></a></td>
-        </tr>
-        <tr>
-          <td>4</td>
-          <td>SL</td>
-          <td>AVAILABLE-85</td>
-          <td><a href="/payment_gateway"<button type="submit" name="Book Ticket" >Book Ticket</button></a></td>
-        </tr>
-        <tr>
-          <td>5</td>
-          <td>2S</td>
-          <td>AVAILABLE-102</td>
-          <td><a href="/payment_gateway"<button type="submit" name="Book Ticket" >Book Ticket</button></a></td>
-        </tr>
+
       </table><br>
     </div>
+<%}%>
+    <%});});%>
     <div class="row">
       <div class="column">
         <img src="https://sourcedigit.com/wp-content/uploads/2014/08/Hero-Img-IRCTC-Indian-Railways-Android-iPhone-Apps.jpg" alt="Snow" style="width:100%" id="img1">

@@ -94,6 +94,136 @@ var Schedules = mongoose.model("Schedule", train_scheduleSchema)
 
 
 
+
+
+app.get("/signup1", function(req, res) {
+  res.render("signup1");
+});
+
+app.post("/signup1", function(req, res) {
+
+  User.register(new User({
+    username: req.body.uid
+  }), req.body.pass, function(err, user) {
+    if (err) {
+      console.log(err);
+      return res.render('signup1');
+    }
+  });
+}, passport.authenticate('local', {
+  successRedirect: '/ticket_booking',
+  failureRedirect: '/signin'
+}));
+//login routes
+
+
+
+
+
+app.get("/signin", function(req, res) {
+  res.render("signin");
+});
+app.post("/signin", passport.authenticate("local", {
+  successRedirect: "/signin",
+  failureRedirect: "/ticket_booking"
+}), function(req, res) {});
+
+
+//middleware
+
+function isloggedin(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/signin");
+}
+
+
+
+app.get("/logout", function(req, res) {
+  req.logout();
+  res.redirect("/");
+});
+
+
+
+app.get("/ticket_booking", function(req, res) {
+  res.render("ticket_booking");
+});
+app.post("/ticket_booking", function(req, res) {
+  res.render("ticket_booking");
+});
+
+
+
+
+
+app.get('/', function(req, res) {
+  res.render('home');
+});
+app.post('/', function(req, res) {
+  res.render('home');
+});
+
+
+
+
+
+
+
+app.post('/Availability_table', function(req, res) {
+  Trains.find({}, function(err, foundTrain) {
+  Seats.find({}, function(err, foundSeat) {
+    res.render("Availability_table", {
+      trains: foundTrain,
+      seats:foundSeat
+    });
+  })})
+});
+
+
+
+
+
+
+app.get('/payment_gateway', function(req, res) {
+  res.render('payment_gateway');
+});
+
+
+
+
+
+
+app.get('/Seat_Availability', function(req, res) {
+  res.render('Seat_Availability');
+});
+app.post('/Seat_Availability', function(req, res) {
+  res.render('Seat_Availability');
+});
+
+
+
+
+app.get('/contact', function(req, res) {
+  res.render('contact');
+});
+
+
+
+
+app.get('/ticket_schedule', function(req, res) {
+  Trains.find({}, function(err, foundTrain) {
+  Schedules.find({}, function(err, foundSchedule) {
+    res.render("ticket_schedule", {
+      trains: foundTrain,
+      schedules:foundSchedule
+    });
+  })})
+});
+
+
+
 app.get("/admin_addtrains", function(req, res) {
   Trains.find({}, function(err, foundTrain) {
 
@@ -148,7 +278,7 @@ app.post("/admin_addtrains", function(req, res) {
 
 
 app.get("/admin_addschedule", function(req, res) {
-  Schedule.find({}, function(err, foundTrain) {
+  Schedules.find({}, function(err, foundTrain) {
 
     res.render("admin_addschedule");
 
@@ -255,121 +385,6 @@ app.post("/admin_addseats", function(req, res) {
     }
     //res.redirect("/");
   })
-});
-
-
-
-
-
-app.get("/signup1", function(req, res) {
-  res.render("signup1");
-});
-
-app.post("/signup1", function(req, res) {
-
-  User.register(new User({
-    username: req.body.uid
-  }), req.body.pass, function(err, user) {
-    if (err) {
-      console.log(err);
-      return res.render('signup1');
-    }
-  });
-}, passport.authenticate('local', {
-  successRedirect: '/ticket_booking',
-  failureRedirect: '/signin'
-}));
-//login routes
-
-
-
-
-
-app.get("/signin", function(req, res) {
-  res.render("signin");
-});
-app.post("/signin", passport.authenticate("local", {
-  successRedirect: "/ticket_booking",
-  failureRedirect: "/signin"
-}), function(req, res) {});
-
-
-//middleware
-
-function isloggedin(req, res, next) {
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect("/signin");
-}
-
-
-
-app.get("/logout", function(req, res) {
-  req.logout();
-  res.redirect("/");
-});
-
-
-
-app.get("/ticket_booking", function(req, res) {
-  res.render("ticket_booking");
-});
-app.post("/ticket_booking", function(req, res) {
-  res.render("ticket_booking");
-});
-
-
-
-
-
-app.get('/', function(req, res) {
-  res.render('home');
-});
-app.post('/', function(req, res) {
-  res.render('home');
-});
-
-
-
-
-
-
-
-app.post('/Availability_table', function(req, res) {
-  res.render('Availability_table');
-});
-
-
-
-app.get('/payment_gateway', function(req, res) {
-  res.render('payment_gateway');
-});
-
-
-
-
-
-
-app.get('/Seat_Availability', function(req, res) {
-  res.render('Seat_Availability');
-});
-app.post('/Seat_Availability', function(req, res) {
-  res.render('Seat_Availability');
-});
-
-
-
-
-app.get('/contact', function(req, res) {
-  res.render('contact');
-});
-
-
-
-
-app.get('/ticket_schedule', function(req, res) {
-  res.render('ticket_schedule');
 });
 
 

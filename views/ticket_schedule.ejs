@@ -118,11 +118,14 @@ table{
 </header>
 
 <body>
+
   <div class="container">
     <div class="form-header">
       <h1><b><u>TRAIN SCHEDULE</u></b></h1>
     </div>
+    <%trains.forEach(function(train){%>
     <div style="margin-top:2%;">
+
       <table border="2" width="1000px" cellpadding="5" align="center" cellspacing="0" style="text-align:center;border-radius:5px;">
         <tr style="background-color:black;color:white;">
           <th>Train Number</th>
@@ -132,16 +135,19 @@ table{
           <th>Runs On</th>
         </tr>
         <tr>
-          <td>82501</td>
-          <td>TEJAS EXP.</td>
-          <td>LUCKNOW</td>
-          <td>NEW DELHI</td>
-          <td><b>Mon</b> Tue <b>Wed</b> Thu Fri <b>Sat</b> Sun</td>
+          <td><%=train.train_no%></td>
+          <td><%=train.train_name%></td>
+          <td><%=train.from%></td>
+          <td><%=train.to%></td>
+          <td><%=train.runs_on%></td>
         </tr>
       </table><br>
     </div>
     <div>
+      <%var i=1%>
+
       <table border="3" cellpadding="5" align="center" width="1000px" cellspacing="0" style="text-align:center;border-radius:5px;">
+
         <tr class="heading" style="color:white;background-color:black;">
 
             <th>S.N.</th>
@@ -151,65 +157,21 @@ table{
             <th>Departure Time</th>
             <th>Halt Time(in minutes)</th>
 
-         </tr>
+         </tr><%schedules.forEach(function(schedule){%>
+<%if(train.train_no===schedule.train_no){%>
+
          <tr>
-            <td>1</td>
-            <td>LKO</td>
-            <td>LUCKNOW</td>
-            <td>--</td>
-            <td>19:50</td>
-            <td>02:00</td>
+            <td><%=i++%></td>
+            <td><%=schedule.station_code%></td>
+            <td><%=schedule.station%></td>
+            <td><%=schedule.arrival%></td>
+            <td><%=schedule.departure%></td>
+            <td><%=schedule.halt%></td>
          </tr>
-	 <tr>
-            <td>2</td>
-            <td>AGC</td>
-            <td>AGRA CANTT</td>
-            <td>21:23</td>
-            <td>21:45</td>
-            <td>02:00</td>
-         </tr>
-	 <tr>
-            <td>3</td>
-            <td>GWL</td>
-            <td>GWALIOR</td>
-            <td>23:08</td>
-            <td>23:10</td>
-            <td>02:00</td>
-         </tr>
-         <tr>
-            <td>4</td>
-            <td>JHS</td>
-            <td>JHANSI</td>
-            <td>00:25</td>
-            <td>00:30</td>
-            <td>05:00</td>
-         </tr>
-         <tr>
-            <td>5</td>
-            <td>BPL</td>
-            <td>BHOPAL</td>
-            <td>3:45</td>
-            <td>3:55</td>
-            <td>10:00</td>
-         </tr>
-         <tr>
-            <td>6</td>
-            <td>ITR</td>
-            <td>ITARSI JN</td>
-            <td>05:23</td>
-            <td>05:25</td>
-            <td>02:00</td>
-         </tr>
-         <tr>
-            <td>7</td>
-            <td>NDLS</td>
-            <td>New Delhi</td>
-            <td>09:25</td>
-            <td>09:30</td>
-            <td>05:00</td>
-         </tr>
+
+<%}});%>
       </table><br>
-    </div>
+    </div><%});%>
     <div class="row">
       <div class="column">
         <img src="https://sourcedigit.com/wp-content/uploads/2014/08/Hero-Img-IRCTC-Indian-Railways-Android-iPhone-Apps.jpg" alt="Snow" style="width:100%" id="img1">
