@@ -11,7 +11,10 @@ var passport = require("passport"),
   localstrategy = require("passport-local"),
   passportlocalmongoose = require("passport-local-mongoose");
 
-mongoose.connect("mongodb://localhost/reservation", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb://localhost/reservation", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 const app = express();
 
 
@@ -43,13 +46,13 @@ app.use(passport.session());
 
 passport.use(new localstrategy(User.authenticate()));
 passport.serializeUser(function(user, done) {
-done(null, user.id);
+  done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done) {
-User.findById(id, function(err, user) {
-done(err, user);
-});
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
 });
 
 //====================
@@ -61,21 +64,198 @@ done(err, user);
 
 
 
-const train_scheduleSchema = {
+const train_Schema = {
   train_no: String,
   train_name: String,
   from: String,
   to: String,
   runs_on: String
 };
-var seatavailabilitytableSchema = new mongoose.Schema({
+var seatavailabilitytableSchema = {
   train_no: String,
+  date: String,
   class: String,
-  status: String
+  seats: String
+};
+
+var train_scheduleSchema = {
+  train_no: String,
+  station_code: String,
+  station: String,
+  arrival: String,
+  departure: String,
+  halt: String
+};
+
+var Trains = mongoose.model("Trains", train_Schema);
+var Seats = mongoose.model("Seats", seatavailabilitytableSchema);
+var Schedules = mongoose.model("Schedule", train_scheduleSchema)
+
+
+
+
+app.get("/admin_addtrains", function(req, res) {
+  Trains.find({}, function(err, foundTrain) {
+
+    res.render("admin_addtrains");
+
+    //console.log(foundBlog.content);
+
+    //res.redirect("/");
+
+  });
 });
 
-var Schedule=mongoose.model("Schedule",train_scheduleSchema);
-var Seats=mongoose.model("Seats",seatavailabilitytableSchema);
+app.post("/admin_addtrains", function(req, res) {
+
+  const trainname = _.toUpper(req.body.tname);
+  const trainno = req.body.tno;
+  const from_st = _.toUpper(req.body.fromst);
+  const to_st = _.toUpper(req.body.tost);
+  const runson = _.toUpper(req.body.runson);
+
+  const train = new Trains({
+    train_no: trainno,
+    train_name: trainname,
+    from: from_st,
+    to: to_st,
+    runs_on: runson
+  });
+  Trains.findOne({
+    train_no: trainno
+  }, function(err, foundTrain) {
+    if (!foundTrain) {
+
+      train.save()
+      res.redirect("/");
+
+
+
+    } else {
+      console.log(err);
+    }
+    //res.redirect("/");
+  })
+});
+
+
+
+
+//to add schedule
+
+
+
+
+
+app.get("/admin_addschedule", function(req, res) {
+  Schedule.find({}, function(err, foundTrain) {
+
+    res.render("admin_addschedule");
+
+    //console.log(foundBlog.content);
+
+    //res.redirect("/");
+
+  });
+});
+
+app.post("/admin_addschedule", function(req, res) {
+
+  const trainno = req.body.tno;
+  const station_code1 = _.toUpper(req.body.code);
+  const station = _.toUpper(req.body.stn);
+  const arrival = _.toUpper(req.body.arrival);
+  const departure = _.toUpper(req.body.departure);
+  const halt = req.body.halt;
+
+  const schedule = new Schedules({
+    train_no: trainno,
+    station_code: station_code1,
+    station: station,
+    arrival: arrival,
+    departure: departure,
+    halt: halt
+  });
+  Schedules.findOne({
+    train_no: trainno,
+    station_code: station_code1,
+    station: station,
+    arrival: arrival,
+    departure: departure,
+    halt: halt
+  }, function(err, foundSchedule) {
+    if (!foundSchedule) {
+
+      schedule.save()
+      res.redirect("/");
+
+
+
+    } else {
+      console.log(err);
+    }
+    //res.redirect("/");
+  })
+});
+
+
+
+//to add seats into trains
+
+
+
+
+
+
+app.get("/admin_addseats", function(req, res) {
+  Seats.find({}, function(err, foundSeats) {
+
+    res.render("admin_addseats");
+
+    //console.log(foundBlog.content);
+
+    //res.redirect("/");
+
+  });
+});
+
+
+
+
+
+app.post("/admin_addseats", function(req, res) {
+
+
+  const trainno = req.body.tno;
+  const class_type =_.toUpper( req.body.class);
+  const date = req.body.date;
+  const seat_number = req.body.seats;
+
+  const seat = new Seats({
+    train_no: trainno,
+    class: class_type,
+    date: date,
+    seats: seat_number
+
+  });
+  Seats.findOne({
+    train_no: trainno,
+    class: class_type,
+    date: date
+  }, function(err, foundSeat) {
+    if (!foundSeat) {
+
+      seat.save()
+      res.redirect("/");
+
+
+
+    } else {
+      console.log(err);
+    }
+    //res.redirect("/");
+  })
+});
 
 
 
@@ -96,10 +276,15 @@ app.post("/signup1", function(req, res) {
     }
   });
 }, passport.authenticate('local', {
-    successRedirect: '/ticket_booking',
-    failureRedirect: '/signin'
+  successRedirect: '/ticket_booking',
+  failureRedirect: '/signin'
 }));
 //login routes
+
+
+
+
+
 app.get("/signin", function(req, res) {
   res.render("signin");
 });
@@ -127,10 +312,10 @@ app.get("/logout", function(req, res) {
 
 
 
-app.get("/ticket_booking", isloggedin, function(req, res) {
+app.get("/ticket_booking", function(req, res) {
   res.render("ticket_booking");
 });
-app.post("/ticket_booking", isloggedin, function(req, res) {
+app.post("/ticket_booking", function(req, res) {
   res.render("ticket_booking");
 });
 
@@ -151,13 +336,13 @@ app.post('/', function(req, res) {
 
 
 
-app.post('/Availability_table', isloggedin, function(req, res) {
+app.post('/Availability_table', function(req, res) {
   res.render('Availability_table');
 });
 
 
 
-app.get('/payment_gateway', isloggedin, function(req, res) {
+app.get('/payment_gateway', function(req, res) {
   res.render('payment_gateway');
 });
 
@@ -166,10 +351,10 @@ app.get('/payment_gateway', isloggedin, function(req, res) {
 
 
 
-app.get('/Seat_Availability', isloggedin, function(req, res) {
+app.get('/Seat_Availability', function(req, res) {
   res.render('Seat_Availability');
 });
-app.post('/Seat_Availability', isloggedin, function(req, res) {
+app.post('/Seat_Availability', function(req, res) {
   res.render('Seat_Availability');
 });
 
@@ -183,7 +368,7 @@ app.get('/contact', function(req, res) {
 
 
 
-app.get('/ticket_schedule', isloggedin, function(req, res) {
+app.get('/ticket_schedule', function(req, res) {
   res.render('ticket_schedule');
 });
 
@@ -195,7 +380,7 @@ app.get('/ticket_schedule', isloggedin, function(req, res) {
 
 
 
-app.listen(3000,function(){
+app.listen(3000, function() {
 
   console.log('Running at Port 3000');
 
