@@ -192,13 +192,15 @@ app.get('/payment_gateway', function(req, res) {
 
 
 
-
+var date;
 
 
 app.get('/Seat_Availability', function(req, res) {
   res.render('Seat_Availability');
 });
 app.post('/Seat_Availability', function(req, res) {
+  date = req.body.jdate;
+  console.log(date);
   res.render('Seat_Availability');
 });
 

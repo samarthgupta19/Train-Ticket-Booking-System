@@ -78,6 +78,7 @@ table{
     }
   </style>
 </head>
+
 <header>
   <header>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -124,14 +125,13 @@ table{
 <%trains.forEach(function(train){%>
 
       <%var i=1%>
-    <%seats.forEach(function(seat){%>
-<%if(train.train_no===seat.train_no){%>
+
     <div style="margin-top:2%;">
       <table border="2" width="1000px" cellpadding="5" align="center" cellspacing="0" style="text-align:center;border-radius:5px;">
         <tr style="background-color:black;color:white;">
           <th>Train Number</th>
           <th>Train Name</th>
-          <th>Date(DD-MM-YYYY)</th>
+
           <th>Source Station</th>
           <th>Destination Station</th>
           <th>Quota</th>
@@ -139,7 +139,7 @@ table{
         <tr>
           <td><%=train.train_no%></td>
           <td><%=train.train_name%></td>
-          <td><%=seat.date%></td>
+
           <td><%=train.from%></td>
           <td><%=train.to%></td>
           <td>GENERAL</td>
@@ -152,21 +152,26 @@ table{
 
           <th>S.N.</th>
           <th>Class</th>
+          <th>Date</th>
           <th>Status</th>
+
           <th>Proceed to Booking</th>
 
         </tr>
+        <%seats.forEach(function(seat){%>
+    <%if(train.train_no===seat.train_no){%>
         <tr>
           <td><%=i++%></td>
           <td><%=seat.class%></td>
+          <td><%=seat.date%></td>
           <td><%=seat.seats%></td>
           <td><a href="/payment_gateway"<button type="submit" name="Book Ticket" >Book Ticket</button></a></td>
         </tr>
-
+        <%}%>
+            <%});%>
       </table><br>
     </div>
-<%}%>
-    <%});});%>
+<%});%>
     <div class="row">
       <div class="column">
         <img src="https://sourcedigit.com/wp-content/uploads/2014/08/Hero-Img-IRCTC-Indian-Railways-Android-iPhone-Apps.jpg" alt="Snow" style="width:100%" id="img1">
